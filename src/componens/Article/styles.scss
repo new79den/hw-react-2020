@@ -1,0 +1,72 @@
+@import "../../theme/palette.scss";
+
+.article_wrap {
+  width: 30vw;
+  border: 1px solid $color_grey;
+  display: flex;
+  flex-direction: column;
+  border-radius: .5vw;
+  overflow: hidden;
+  margin-top: 1vw;
+
+  .article_main {
+    position: relative;
+    background: url("img/bg.png");
+    background-size: cover;
+    width: 100%;
+    height: 20vw;
+
+    .buttons_wrap {
+      position: absolute;
+      bottom: 2vw;
+      left: 1.5vw;
+
+      button {
+        margin-right: 1vw;
+      }
+    }
+  }
+
+  .article_description {
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+
+    h3 {
+      font-size: 1.5vw;
+
+      &.active {
+        color: $color_blue;
+      }
+    }
+
+    p {
+      text-align: justify;
+      font-size: 1vw;
+    }
+  }
+
+  .article_footer {
+    border-top: 1px solid $color_grey;
+
+    .article_footer_wrap {
+      @extend .article_description;
+
+      .article_footer_body{
+        display: flex;
+        justify-content: space-between;
+
+        .article_footer_social_wrap{
+          display: flex;
+          align-items: center;
+
+          .comments_wrap{
+            height: 1vw;
+            padding-left: .5vw;
+            color: $color_grey;
+          }
+        }
+      }
+    }
+  }
+}

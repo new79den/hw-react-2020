@@ -1,7 +1,6 @@
 import React from 'react';
+import {News} from './views/News/';
 
 export const App = () => (
-    <div>
-        <p>APP</p>
-    </div>
+    <News/>
 );

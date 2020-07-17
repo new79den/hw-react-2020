@@ -1,6 +1,10 @@
 import React from 'react';
-import { Articles } from '../componens/Articles'
+import { Articles } from '../../componens/Articles';
+
+import './styles.scss';
 
 export const News = () => (
-    <Articles />
+    <div className="news_wrap wrap">
+            <Articles />
+    </div>
 );

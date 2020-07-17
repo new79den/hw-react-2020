@@ -1,0 +1,10 @@
+@import "../../theme/palette.scss";
+
+.button_wrap{
+  padding: .3vw .5vw;
+  border-radius: .2vw;
+  background-color: $color_orange;
+  border: none;
+  color: $color_orange2;
+  font-weight: bold;
+}

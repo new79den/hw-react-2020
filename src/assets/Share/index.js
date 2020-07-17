@@ -2,12 +2,12 @@ import React from 'react';
 
 import './styles.scss';
 
-import commentsSvg from './bubble.svg';
+import shareSvg from './share.svg';
 
-export const Comments = () => {
+export const Share = () => {
     return (
         <div className="comments_wrap">
-            <img src={commentsSvg} alt=""/>
+            <img src={shareSvg} alt=""/>
             <div className="count">
                 123
             </div>
