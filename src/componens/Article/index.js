@@ -22,8 +22,9 @@ const getDate = (utcDate) => {
 export const Article = ({title, description, likes, comments, image, tags, published}) => (
     <div className="article_wrap">
         <div className="article_main">
+            <img src={image} alt=""/>
             <div className="buttons_wrap">
-                {tags.map(tag => (<Tag source={tag}/>))}
+                {tags.map((tag, index) => (<Tag key={index} source={tag}/>))}
             </div>
         </div>
         <div className="article_description">

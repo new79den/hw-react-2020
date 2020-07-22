@@ -4,8 +4,8 @@ import './styles.scss';
 
 export const Articles = ({source = []}) => (
     <ul className="articles_wrap">
-        {source.map(({key, title, description, likes, comments, image, tags, published}, index) => <Article
-            key={index}
+        {source.map(({key, title, description, likes, comments, image, tags, published}) => <Article
+            key={key}
             title={title}
             description={description}
             likes={likes}

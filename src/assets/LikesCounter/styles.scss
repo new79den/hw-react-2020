@@ -1,7 +1,15 @@
 .comments_wrap {
   display: flex;
+  cursor: pointer;
 
   img {
     height: 1vw;
+  }
+
+  .count {
+    user-select:none;
+    &.active {
+      color: blue;
+    }
   }
 }
