@@ -1,33 +1,44 @@
 import React from 'react';
-import {Button} from '../../assets/Button';
-import {Comments} from '../../assets/Comments';
-import {Likes} from '../../assets/Likes';
+import {Tag} from '../../assets/Tag';
+import {CommentsCounter} from '../../assets/CommentsCounter';
+import {LikesCounter} from '../../assets/LikesCounter';
 import {Share} from '../../assets/Share';
 
 import './styles.scss';
 
-export const Article = ({title}) => (
+const formatDate = (date) => {
+    return date.toString().length === 1 ? `0${date}` : date;
+}
+
+const getDate = (utcDate) => {
+    const d = new Date(utcDate);
+    const date = formatDate(d.getDate());
+    const mount = formatDate(d.getMonth()+1);
+    const year = d.getFullYear();
+    return `${date}.${mount}.${year}`;
+}
+
+
+export const Article = ({title, description, likes, comments, image, tags, published}) => (
     <div className="article_wrap">
         <div className="article_main">
             <div className="buttons_wrap">
-                <Button>literature</Button>
-                <Button>literature</Button>
+                {tags.map(tag => (<Tag source={tag}/>))}
             </div>
         </div>
         <div className="article_description">
-            <h3>Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam animi cumque natus pariatur quod
-                sapiente sequi, tempora vero vitae? Aliquam amet ea et ipsam libero maiores officiis quis ratione.</p>
+            <h3>{title}</h3>
+            <p>{description}</p>
         </div>
         <div className="article_footer">
             <div className="article_footer_wrap">
                 <div className="article_footer_body">
                     <div className="article_footer_time">
-                        <p>15.072017</p>
+                        <p>{getDate(published)}</p>
                     </div>
                     <div className="article_footer_social_wrap">
-                        <Comments/>
-                        <Likes/>
+                        <CommentsCounter counts={comments}/>
+                        <LikesCounter counts={likes}/>
                         <Share/>
                     </div>
                 </div>

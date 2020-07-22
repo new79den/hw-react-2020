@@ -1,37 +1,18 @@
 import React from 'react';
 import {Article} from '../Article';
-
 import './styles.scss';
 
-const articles = [
-    {
-        key: 'asfFAs2',
-        title: 'Article 1',
-        description: 'text 1 text 1 text 1 text 1',
-    },
-    {
-        key: 'asdfs#4e',
-        title: 'Article 3',
-        description: 'text 2 text 2 text 2 text 2',
-    },
-    {
-        key: 'ASDF32f',
-        title: 'Article 4',
-        description: 'text 3 text 3 text 3 text 3',
-    },
-    {
-        key: 'ASDF32f1',
-        title: 'Article 4',
-        description: 'text 3 text 3 text 3 text 3',
-    }
-]
-
-export const Articles = () => (
+export const Articles = ({source = []}) => (
     <ul className="articles_wrap">
-        {articles.map(({key, title, description}) => <Article
-            key={key}
+        {source.map(({key, title, description, likes, comments, image, tags, published}, index) => <Article
+            key={index}
             title={title}
             description={description}
+            likes={likes}
+            comments={comments}
+            image={image}
+            tags={tags}
+            published={published}
         />)}
     </ul>
 )

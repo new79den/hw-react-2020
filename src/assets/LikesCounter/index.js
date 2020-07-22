@@ -4,12 +4,12 @@ import './styles.scss';
 
 import likesSvg from './favorite.svg';
 
-export const Likes = () => {
+export const LikesCounter = ({counts}) => {
     return (
         <div className="comments_wrap">
             <img src={likesSvg} alt=""/>
             <div className="count">
-                123
+                {counts}
             </div>
         </div>
     );
