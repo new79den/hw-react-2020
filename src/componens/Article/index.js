@@ -19,13 +19,21 @@ const getDate = (utcDate) => {
 }
 
 
-export const Article = ({title, description, likes, comments, image, tags, published}) => (
+export const Article = ({title, likes, created, poster, updated, description, tags, comments}) => {
+
+    const getTags = () => {
+        return tags.split(', ');
+    }
+
+    const dateArticle = updated || created;
+
+    return (
     <div className="article_wrap">
         <div className="article_main">
-            <img src={image} alt=""/>
-            <div className="buttons_wrap">
-                {tags.map((tag, index) => (<Tag key={index} source={tag}/>))}
-            </div>
+            <img src={poster} alt=""/>
+            {<div className="buttons_wrap">
+                {getTags().map((tag, index) => (<Tag key={index} source={tag}/>))}
+            </div>}
         </div>
         <div className="article_description">
             <h3>{title}</h3>
@@ -35,7 +43,7 @@ export const Article = ({title, description, likes, comments, image, tags, publi
             <div className="article_footer_wrap">
                 <div className="article_footer_body">
                     <div className="article_footer_time">
-                        <p>{getDate(published)}</p>
+                        <p>{getDate(dateArticle)}</p>
                     </div>
                     <div className="article_footer_social_wrap">
                         <CommentsCounter counts={comments}/>
@@ -46,4 +54,4 @@ export const Article = ({title, description, likes, comments, image, tags, publi
             </div>
         </div>
     </div>
-);
+)};
