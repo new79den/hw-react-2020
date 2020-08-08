@@ -17,5 +17,26 @@ export const api = {
 
         return response;
 
+    },
+
+    async getPostById(id) {
+        const response = await new Promise(((resolve, reject) => {
+            setTimeout(() => {
+                let post = false;
+
+                for (const prop of news) {
+                    if (prop.objectId === id) {
+                        post = prop;
+                    }
+                }
+                if (post !== false) {
+                    resolve(post);
+                } else {
+                    reject({isError: true})
+                }
+
+            }, 1000)
+        }))
+        return response;
     }
 }

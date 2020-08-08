@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { history } from './navigation/history';
+import { Routes } from './navigation/index';
 
 import './theme/reset.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={history} >
+        <Routes />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );

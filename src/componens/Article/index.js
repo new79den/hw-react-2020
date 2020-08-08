@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
 import {Tag} from '../../assets/Tag';
 import {CommentsCounter} from '../../assets/CommentsCounter';
 import {LikesCounter} from '../../assets/LikesCounter';
@@ -19,7 +20,12 @@ const getDate = (utcDate) => {
 }
 
 
-export const Article = ({title, likes, created, poster, updated, description, tags, comments}) => {
+export const Article = ({title, likes, created, poster, updated, description, tags, comments, objectId}) => {
+    let history = useHistory();
+
+    const openNews = (id) => {
+        history.push(`/news/${id}`);
+    }
 
     const getTags = () => {
         return tags.split(', ');
@@ -36,7 +42,7 @@ export const Article = ({title, likes, created, poster, updated, description, ta
             </div>}
         </div>
         <div className="article_description">
-            <h3>{title}</h3>
+            <h3 onClick={()=>openNews(objectId)}>{title}</h3>
             <p>{description}</p>
         </div>
         <div className="article_footer">
