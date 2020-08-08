@@ -14,9 +14,7 @@ export const api = {
                 resolve(news);
             }, 1000);
         })
-
         return response;
-
     },
 
     async getPostById(id) {

@@ -1,11 +1,10 @@
 import React from 'react';
 import {Article} from '../Article';
-import {Loading} from '../../assets/Loading';
 import './styles.scss';
 
 export const Articles = ({source}) => {
 
-    return source.length ? (
+    return (
         <ul className="articles_wrap">
             {source.map(({
                              title, likes, created, poster, updated, objectId, description, tags, comments
@@ -22,5 +21,5 @@ export const Articles = ({source}) => {
                 comments={comments}
             />)}
         </ul>
-    ) : <Loading/>
+    )
 }
