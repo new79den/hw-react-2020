@@ -1,3 +1,23 @@
 .articleDetail {
-  color: red;
+  display: flex;
+  flex-direction: row;
+
+  .image_wrap{
+    width: 50%;
+
+    img{
+      width: 80%;
+    }
+  }
+  .detail_wrap{
+    width: 50%;
+
+    .like_wrap{
+      div{
+        margin-right: .5vw;
+      }
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }
