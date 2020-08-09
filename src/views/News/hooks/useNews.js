@@ -1,12 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useLocalStorage} from '../../../assets/hooks/useLocalStorage';
 import {api} from '../../../api';
-
-
-const isValidLocalStorageTime = (time) => {
-    const different = Math.abs(new Date().getTime() - time);
-    return different < 600000;
-}
+import {isValidLocalStorageTime} from '../../../assets/common';
 
 const initialState = {
     isLoaded: false,
