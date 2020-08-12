@@ -8,8 +8,13 @@ export const useLocalStorage = (key) => {
         return JSON.parse(data);
     })())
 
-    const setLocalStorageData = (value) => {
-        const data = {data: value, timestamp: new Date().getTime()}
+    const setLocalStorageData = (value, useTimestamp) => {
+
+
+        const data = useTimestamp === true
+            ? {data: value, timestamp: new Date().getTime()}
+            : value
+
         localStorage.setItem(key, JSON.stringify(data));
         setDataState(value);
     }

@@ -32,7 +32,7 @@ export const useDetail = (id) => {
                         ...{isLoaded: true},
                         ...{data:post}
                     });
-                    setLocalStorageData(post);
+                    setLocalStorageData(post, true);
                 }
 
             } catch (e) {

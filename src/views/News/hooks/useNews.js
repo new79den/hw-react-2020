@@ -29,7 +29,7 @@ export const useNews = () => {
                     });
                 } else {
                     const posts = await api.getPost();
-                    setLocalStorageData(posts)
+                    setLocalStorageData(posts, true)
 
                     setPosts({
                         ...initialState,
