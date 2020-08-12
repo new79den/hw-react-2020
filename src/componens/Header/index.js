@@ -7,7 +7,6 @@ import {useHistory} from 'react-router-dom';
 export const Header = ({setLogin, isLoginStage}) => {
     let history = useHistory();
 
-    console.log('ttt', isLoginStage);
     const toggleLogin = () => {
         if (isLoginStage === true) {
             setLogin(false);

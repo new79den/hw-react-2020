@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router';
 import {book} from './books';
-
+import {PrivateRoute} from './PrivateRout';
 import {News} from '../views/News';
 import {Detail} from '../views/Detail';
 import {NotFound} from '../views/NotFound';
@@ -25,9 +25,9 @@ export const Routes = () => {
                 <Route path={book.login}>
                     <Login setLogin = {setLogin} isLoginStage = {isLoginStage} />
                 </Route>
-                <Route path={book.newsDetail}>
+                <PrivateRoute path={book.newsDetail}>
                     <Detail/>
-                </Route>
+                </PrivateRoute>
                 <Route path={book.news}>
                     <News/>
                 </Route>
