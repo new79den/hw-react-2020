@@ -19,6 +19,7 @@ export const Header = ({setLogin, isLoginStage}) => {
         <div className={style.wrap_header}>
             <NavLink exact activeClassName={style.activeLink} to={book.root}>Main</NavLink>
             <NavLink exact activeClassName={style.activeLink} to={book.news}>News</NavLink>
+            <NavLink exact activeClassName={style.activeLink} to={book.registration}>Registration</NavLink>
 
             <div className='block'>
                 <button onClick={toggleLogin}> {isLoginStage === true ? 'Logout' : 'Login'} </button>

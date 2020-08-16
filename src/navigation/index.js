@@ -9,7 +9,7 @@ import {Accordion} from '../views/Accordion';
 import {Login} from '../views/Login';
 import {Header} from '../componens/Header';
 import {useLogin} from "../assets/hooks/useLogin";
-
+import {StudentRegistration} from '../views/StudentRegistration';
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()
@@ -30,6 +30,9 @@ export const Routes = () => {
                 </PrivateRoute>
                 <Route path={book.news}>
                     <News/>
+                </Route>
+                <Route path={book.registration}>
+                    <StudentRegistration/>
                 </Route>
                 <Route path="*">
                     <NotFound/>
