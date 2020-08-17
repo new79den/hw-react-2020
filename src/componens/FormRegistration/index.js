@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Formik, Field, Form} from 'formik';
 import style from './style.module.scss';
+import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
 
 const initialValues = {
     firstName: '',
@@ -13,13 +14,22 @@ const initialValues = {
 
 export const FormRegistration = () => {
 
+    const {localStorageData, setLocalStorageData} = useLocalStorage('formData');
+    const [formStage, setFormState] = useState((() => {
+       return localStorageData ? localStorageData : initialValues;
+    })())
+
     const submitForm = (values) => {
-        console.log(values);
+        setLocalStorageData(values);
+        setFormState(values);
+        console.log('update', values)
     }
+
+
     return (
         <section className={style.wrap}>
             <Formik
-                initialValues={initialValues}
+                initialValues={formStage}
                 onSubmit={submitForm}
             >
 
@@ -61,7 +71,7 @@ export const FormRegistration = () => {
                                 <option value="developer">developer</option>
                                 <option value="writer">writer</option>
                             </Field>
-                            <button type="submit">Submit</button>
+                            <button type="submit">{localStorageData ? 'Обновить': 'Добавить'}</button>
                         </Form>
                     )
                 }}
