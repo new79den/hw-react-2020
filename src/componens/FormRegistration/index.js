@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Formik, Field, Form} from 'formik';
 import style from './style.module.scss';
 import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
+import {useHistory} from 'react-router-dom';
+import {book} from '../../navigation/books';
 
 const initialValues = {
     firstName: '',
@@ -17,11 +19,13 @@ export const FormRegistration = () => {
     const {localStorageData, setLocalStorageData} = useLocalStorage('formData');
     const [formStage, setFormState] = useState((() => {
        return localStorageData ? localStorageData : initialValues;
-    })())
+    })());
+    const history = useHistory();
 
     const submitForm = (values) => {
         setLocalStorageData(values);
         setFormState(values);
+        history.push(book.student);
         console.log('update', values)
     }
 
