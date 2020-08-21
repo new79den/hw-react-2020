@@ -4,6 +4,7 @@ import style from './style.module.scss';
 import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
 import {useHistory} from 'react-router-dom';
 import {book} from '../../navigation/books';
+import {MyTextInput} from '../../assets/fields/MyTextInput'
 
 const initialValues = {
     firstName: '',
@@ -36,7 +37,7 @@ export const FormRegistration = () => {
         if (!value) {
             error = 'Required';
         } else if (value.length < 2) {
-            error = 'Короткое имя';
+            error = 'Нужно чуть подленее';
         }
         return error;
     }
@@ -51,7 +52,7 @@ export const FormRegistration = () => {
         }
 
         if ( changeField(values.firstName) ){
-            errors.surname = changeField(values.firstName);
+            errors.firstName = changeField(values.firstName);
         }
 
         if ( changeField(values.surname) ){
@@ -80,14 +81,18 @@ export const FormRegistration = () => {
                     console.log(errors);
                     return (
                         <Form>
-                            <label htmlFor="firstName">first name</label>
-                            <Field type="text" name="firstName"/>
-                            {errors.firstName && touched.firstName ? <div className='error'>{errors.firstName}</div> : null}
-                            <br/>
+                            <MyTextInput
+                                label="first name"
+                                name="firstName"
+                                placeholder="Имя"
+                            />
 
-                            <label htmlFor="surname">surname</label>
-                            <Field type="text" name="surname"/>
-                            {errors.surname && touched.surname ? <div className='error'>{errors.surname}</div> : null}
+                            <br/>
+                            <MyTextInput
+                                label="surname"
+                                name="surname"
+                                placeholder="Фамилия"
+                            />
                             <br/>
 
                             <label htmlFor="age">age</label>
@@ -95,13 +100,14 @@ export const FormRegistration = () => {
                             {errors.age && touched.age ? <div className='error'>{errors.age}</div> : null}
                             <br/>
 
-                            <label htmlFor="email">email</label>
-                            <Field type="email" name="email"/>
-                            {errors.email && touched.email ? <div className='error'>{errors.email}</div> : null}
-                            <br/>
-
+                            <MyTextInput
+                                label="email"
+                                name="email"
+                                placeholder="email"
+                            />
 
                             <div>
+
                                 <label htmlFor="sex">male</label>
                                 <Field
                                     checked={values.sex === 'male'}
@@ -110,7 +116,7 @@ export const FormRegistration = () => {
                                     value="male"
                                 />
 
-                                <label htmlFor="female">female</label>
+                                <label htmlFor="sex">female</label>
                                 <Field
                                     checked={values.sex === 'female'}
                                     type="radio"
