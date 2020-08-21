@@ -36,6 +36,11 @@ export const FormRegistration = () => {
         email: Yup.string()
             .email('Invalid email')
             .required('Required'),
+        password: Yup.string()
+            .required('Required'),
+        confirmpassword: Yup.string()
+            .required('Required')
+            .oneOf([Yup.ref('password'), null], 'Passwords must match')
     });
 
     const submitForm = (values) => {
@@ -108,6 +113,21 @@ export const FormRegistration = () => {
                                 <option value="developer">developer</option>
                                 <option value="writer">writer</option>
                             </Field>
+                            <br/>
+                            <MyTextInput
+                                label="password"
+                                type="password"
+                                name="password"
+                                placeholder="password"
+                            />
+                            <br/>
+                            <MyTextInput
+                                label="confirmpassword"
+                                type="password"
+                                name="confirmpassword"
+                                placeholder="confirmpassword"
+                            />
+                            <br/>
                             <button type="submit">{localStorageData ? 'Обновить': 'Добавить'}</button>
                         </Form>
                     )

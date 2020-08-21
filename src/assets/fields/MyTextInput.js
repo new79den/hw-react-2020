@@ -10,7 +10,7 @@ export const MyTextInput = ({label, ...props}) => {
                 {label}
             </label>
 
-            <input className="text-input" type="text" {...field} {...props}/>
+            <input className="text-input" {...field} {...props}/>
             {meta.touched && meta.error && (
                 <span className="error">{meta.error}</span>
             )}
