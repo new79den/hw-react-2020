@@ -4,7 +4,8 @@ import style from './style.module.scss';
 import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
 import {useHistory} from 'react-router-dom';
 import {book} from '../../navigation/books';
-import {MyTextInput} from '../../assets/fields/MyTextInput'
+import {MyTextInput} from '../../assets/fields/MyTextInput';
+import * as Yup from 'yup';
 
 const initialValues = {
     firstName: '',
@@ -23,6 +24,20 @@ export const FormRegistration = () => {
     })());
     const history = useHistory();
 
+    const SignupSchema = Yup.object().shape({
+        firstName: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Required'),
+        surname: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Required'),
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Required'),
+    });
+
     const submitForm = (values) => {
         console.log('submit');
         setLocalStorageData(values);
@@ -32,49 +47,12 @@ export const FormRegistration = () => {
     }
 
 
-    const changeField = (value) => {
-        let error = false
-        if (!value) {
-            error = 'Required';
-        } else if (value.length < 2) {
-            error = 'Нужно чуть подленее';
-        }
-        return error;
-    }
-
-    const validate = (values) => {
-        const errors = {};
-
-        if (!values.email) {
-            errors.email = 'Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
-        }
-
-        if ( changeField(values.firstName) ){
-            errors.firstName = changeField(values.firstName);
-        }
-
-        if ( changeField(values.surname) ){
-            errors.surname = changeField(values.surname);
-        }
-
-        if (values.age < 6){
-            errors.age = 'Должно быть больше 6'
-        } else if(errors.age > 60){
-            errors.age = 'Должно меньше больше 69'
-        }
-
-        return errors;
-    };
-
-
     return (
         <section className={style.wrap}>
             <Formik
                 initialValues={formStage}
                 onSubmit={submitForm}
-                validate = {validate}
+                validationSchema={SignupSchema}
             >
 
                 {({values, errors, touched}) => {
