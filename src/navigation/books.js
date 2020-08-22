@@ -6,4 +6,5 @@ export const book = Object.freeze({
     login: '/login',
     registration: '/student/registration',
     student: '/student',
+    user: '/user'
 })

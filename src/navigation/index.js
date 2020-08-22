@@ -11,6 +11,7 @@ import {Header} from '../componens/Header';
 import {useLogin} from "../assets/hooks/useLogin";
 import {StudentRegistration} from '../views/StudentRegistration';
 import {Student} from '../views/Student';
+import {User} from "../views/User";
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()
@@ -37,6 +38,9 @@ export const Routes = () => {
                 </Route>
                 <Route path={book.student}>
                     <Student/>
+                </Route>
+                <Route path={book.user}>
+                    <User/>
                 </Route>
                 <Route path="*">
                     <NotFound/>
