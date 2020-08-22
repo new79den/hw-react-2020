@@ -1,15 +1,15 @@
 import React from 'react';
-import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
 import {useHistory} from 'react-router-dom';
 import {book} from '../../navigation/books';
-
+import {useStudent} from './useHooks/useStudent';
 
 export const Student = () => {
-    const {localStorageData} = useLocalStorage('formData');
+
+    const {studentState} = useStudent();
     const history = useHistory()
 
     const getDetail = () => {
-        const {firstName, surname, age, email, sex, speciality} = localStorageData;
+        const {firstName, surname, age, email, sex, speciality} = studentState;
 
         return (
             <div>
@@ -28,12 +28,5 @@ export const Student = () => {
         history.push(book.registration);
     }
 
-    return localStorageData
-        ? getDetail()
-        : (
-            <div>
-                <p>Студент еще не создан, вы можете создать студента по этому <a onClick={redirectToRegistrationForm}
-                                                                                 href="#">адресу</a></p>
-            </div>
-        );
+    return  getDetail();
 }

@@ -1,27 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Formik, Field, Form} from 'formik';
 import style from './style.module.scss';
-import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
+import {useStudent} from '../../views/Student/useHooks/useStudent'
 import {useHistory} from 'react-router-dom';
 import {book} from '../../navigation/books';
 import {MyTextInput} from '../../assets/fields/MyTextInput';
 import * as Yup from 'yup';
 
-const initialValues = {
-    firstName: '',
-    surname: '',
-    age: 0,
-    email: '',
-    sex: 'male',
-    speciality: 'designer',
-}
 
 export const FormRegistration = () => {
 
-    const {localStorageData, setLocalStorageData} = useLocalStorage('formData');
-    const [formStage, setFormState] = useState((() => {
-       return localStorageData ? localStorageData : initialValues;
-    })());
+    const {studentState, setStudentState} = useStudent();
+
     const history = useHistory();
 
     const SignupSchema = Yup.object().shape({
@@ -45,8 +35,7 @@ export const FormRegistration = () => {
 
     const submitForm = (values) => {
         console.log('submit');
-        setLocalStorageData(values);
-        setFormState(values);
+        setStudentState(values);
         history.push(book.student);
         console.log('update', values)
     }
@@ -55,7 +44,7 @@ export const FormRegistration = () => {
     return (
         <section className={style.wrap}>
             <Formik
-                initialValues={formStage}
+                initialValues={studentState}
                 onSubmit={submitForm}
                 validationSchema={SignupSchema}
             >
@@ -128,7 +117,7 @@ export const FormRegistration = () => {
                                 placeholder="confirmpassword"
                             />
                             <br/>
-                            <button type="submit">{localStorageData ? 'Обновить': 'Добавить'}</button>
+                            <button type="submit">Добавить</button>
                         </Form>
                     )
                 }}
