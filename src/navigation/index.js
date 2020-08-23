@@ -12,6 +12,7 @@ import {useLogin} from "../assets/hooks/useLogin";
 import {StudentRegistration} from '../views/StudentRegistration';
 import {Student} from '../views/Student';
 import {User} from "../views/User";
+import {Starship} from '../views/Starship';
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()
@@ -41,6 +42,9 @@ export const Routes = () => {
                 </Route>
                 <Route path={book.user}>
                     <User/>
+                </Route>
+                <Route path={book.starship}>
+                       <Starship/>
                 </Route>
                 <Route path="*">
                     <NotFound/>
