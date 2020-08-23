@@ -16,9 +16,17 @@ export const starshipsAction = Object.freeze({
     fill: (payload) => {
         return {
             type: types.STARSHIP_FILL,
-            payload
+            payload,
         }
     },
+    error: (error) => {
+        return {
+            type: types.STARSHIP_ERROR_FETCH,
+            error: true,
+            payload: error,
+        }
+    },
+
     //Async
     fetchAsync: () => async (dispatch) => {
         dispatch({
@@ -28,9 +36,18 @@ export const starshipsAction = Object.freeze({
         dispatch(starshipsAction.startFetch());
 
         const response = await api.starship.fetch();
-        const result = await response.json();
+
+        if (response.status === 200) {
+            const result = await response.json();
+            dispatch(starshipsAction.fill(result));
+        } else {
+           const error = {
+               status: response.status
+           }
+           dispatch(starshipsAction.error(error));
+        }
+
 
         dispatch(starshipsAction.stopFetch());
-        dispatch(starshipsAction.fill(result))
     }
 })

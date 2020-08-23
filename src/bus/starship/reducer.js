@@ -2,7 +2,8 @@ import {types} from './types';
 
 const initialState = {
     data: [],
-    isFetching: false
+    isFetching: false,
+    error: false
 };
 
 export const starshipsReducer = (state = initialState, {type, payload}) => {
@@ -11,6 +12,8 @@ export const starshipsReducer = (state = initialState, {type, payload}) => {
             return {...state, isFetching: true}
         case types.STARSHIP_STOP_FETCH:
             return {...state, isFetching: false}
+        case types.STARSHIP_ERROR_FETCH:
+            return {...state, error: payload}
         case types.STARSHIP_FILL :
             return {...state, data: payload}
         default:
