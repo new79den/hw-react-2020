@@ -10,7 +10,16 @@ export const Starship = () => {
         dispatch(starshipsAction.fetchAsync())
     }, [dispatch])
 
-    return (<div>
-        Starship
-    </div>)
+    const {data, isFetching} = useSelector(state => state.starship);
+    const list = isFetching || data.map(({id, title}) => {
+        return (<li key={id}>{title}</li>)
+    })
+    const loading = isFetching && <p>Loading from API...</p>;
+
+    return (
+        <ul>
+            {loading}
+            {list}
+        </ul>
+    )
 }
