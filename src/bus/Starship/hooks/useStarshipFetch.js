@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {starshipsAction} from '../../../bus/starship/action';
+import {starshipsAction} from '../action';
 
 export const useStarshipFetch = () => {
     const dispatch = useDispatch();

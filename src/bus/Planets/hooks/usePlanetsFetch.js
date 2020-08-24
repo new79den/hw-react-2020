@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {planetsAction} from '../../../bus/planets/action';
+import {planetsAction} from '../action';
 
 export const usePlanetsFetch = () => {
     const dispatch = useDispatch();

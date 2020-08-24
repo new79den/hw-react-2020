@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import {Tag} from '../../assets/Tag';
-import {CommentsCounter} from '../../assets/CommentsCounter';
-import {LikesCounter} from '../../assets/LikesCounter';
-import {Share} from '../../assets/Share';
+import {Tag} from '../Tag';
+import {CommentsCounter} from '../Counter';
+import {LikesCounter} from '../LikesCounter';
+import {Share} from '../Share';
 
 import './styles.scss';
 

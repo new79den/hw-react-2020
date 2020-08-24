@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import {CommentsCounter} from '../../assets/CommentsCounter';
-import {LikesCounter} from '../../assets/LikesCounter';
+import {CommentsCounter} from '../Counter';
+import {LikesCounter} from '../LikesCounter';
 
 
 export const ArticleDetail = ({detail}) => {

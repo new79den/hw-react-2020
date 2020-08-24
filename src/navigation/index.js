@@ -8,13 +8,13 @@ import {NotFound} from '../views/NotFound';
 import {Accordion} from '../views/Accordion';
 import {Login} from '../views/Login';
 import {Header} from '../componens/Header';
-import {useLogin} from "../assets/hooks/useLogin";
+import {useLogin} from "./hooks/useLogin";
 import {StudentRegistration} from '../views/StudentRegistration';
 import {Student} from '../views/Student';
-import {User} from "../views/User";
-import {Starship} from '../views/Starship';
-import {Planets} from '../views/Planets';
-import {Swapi} from '../views/Swapi';
+import {User} from "../bus/User";
+import {Starship} from '../bus/Starship';
+import {Planets} from '../bus/Planets';
+import {Swapi} from '../bus/Swapi';
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()

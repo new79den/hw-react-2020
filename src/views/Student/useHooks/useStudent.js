@@ -1,5 +1,5 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {studentAction} from '../../../bus/student/action';
+import {studentAction} from '../../../bus/Student/action';
 
 export const useStudent = () => {
     const studentState = useSelector(state => state.student);

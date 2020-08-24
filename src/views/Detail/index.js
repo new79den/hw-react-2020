@@ -3,7 +3,7 @@ import {ArticleDetail} from '../../componens/ArticleDetail';
 import {useDetail} from './hooks/useDetail';
 import {useParams} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
-import {Loading} from '../../assets/Loading';
+import {Loading} from '../../componens/Loading';
 
 export const Detail = () => {
     const {id} = useParams();

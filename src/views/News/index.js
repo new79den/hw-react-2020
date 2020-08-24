@@ -1,7 +1,7 @@
 import React from 'react';
 import {Articles} from '../../componens/Articles';
 import {useNews} from './hooks/useNews';
-import {Loading} from '../../assets/Loading';
+import {Loading} from '../../componens/Loading';
 
 import './styles.scss';
 

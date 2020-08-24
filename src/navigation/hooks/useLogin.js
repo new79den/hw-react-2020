@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {useLocalStorage} from './useLocalStorage';
+import {useLocalStorage} from '../../assets/hooks/useLocalStorage';
 
 export const useLogin = () => {
     const [isLoginStage, setLoginStage] = useState(false);
