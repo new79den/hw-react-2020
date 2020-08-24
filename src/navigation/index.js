@@ -7,28 +7,22 @@ import {book} from './books';
 import * as Views from '../views'
 
 // Domains
+import {People} from '../bus/People';
+import {Person} from '../bus/Person';
 import {NotFound} from '../bus/NotFound';
-import {Starship} from '../bus/Starship';
-import {Planets} from '../bus/Planets';
-import {Swapi} from '../bus/Swapi';
 
 export const Routes = () => {
     return (
         <>
             <Switch>
-                <Route path={book.root}>
+                <Route exact path={book.root}>
                     <Views.Facade>
-                        <Starship/>
+                        <People/>
                     </Views.Facade>
                 </Route>
-                <Route path={book.planets}>
+                <Route path={book.person}>
                     <Views.Facade>
-                        <Planets/>
-                    </Views.Facade>
-                </Route>
-                <Route path={book.swapi}>
-                    <Views.Facade>
-                        <Swapi/>
+                        <Person/>
                     </Views.Facade>
                 </Route>
                 <Route path="*">

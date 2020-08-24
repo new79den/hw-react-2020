@@ -1,27 +1,27 @@
 import {types} from './types';
 import {api} from '../../api'
 
-export const planetsAction = Object.freeze({
+export const peopleAction = Object.freeze({
     //Sync
     startFetch: () => {
         return {
-            type: types.PLANETS_START_FETCH,
+            type: types.PEOPLE_START_FETCH,
         }
     },
     stopFetch: () => {
         return {
-            type: types.PLANETS_STOP_FETCH,
+            type: types.PEOPLE_STOP_FETCH,
         }
     },
     fill: (payload) => {
         return {
-            type: types.PLANETS_FILL,
+            type: types.PEOPLE_FILL,
             payload,
         }
     },
     error: (error) => {
         return {
-            type: types.PLANETS_ERROR_FETCH,
+            type: types.PEOPLE_ERROR_FETCH,
             error: true,
             payload: error,
         }
@@ -30,22 +30,22 @@ export const planetsAction = Object.freeze({
     //Async
     fetchAsync: () => async (dispatch) => {
         dispatch({
-            type: types.PLANETS_FETCH_ASYNC
+            type: types.PEOPLE_FETCH_ASYNC
         })
-        dispatch(planetsAction.startFetch());
+        dispatch(peopleAction.startFetch());
 
-        const response = await api.starship.fetch();
+        const response = await api.people.fetch();
 
         if (response.status === 200) {
             const result = await response.json();
-            dispatch(planetsAction.fill(result));
+            dispatch(peopleAction.fill(result));
         } else {
-           const error = {
-               status: response.status
-           }
-           dispatch(planetsAction.error(error));
+            const error = {
+                status: response.status
+            }
+            dispatch(peopleAction.error(error));
         }
 
-        dispatch(planetsAction.stopFetch());
+        dispatch(peopleAction.stopFetch());
     }
 })

@@ -1,18 +1,18 @@
 import {root} from './config';
 
 export const api = Object.freeze({
-    starship: {
+    people: {
         fetch: () => {
-            return fetch(`${root}/posts`, {
-                method: "GET"
+            return fetch(`${root}/users`, {
+                method: "GET",
             })
         }
     },
-    planets: {
-        fetch: () => {
-            return fetch(`${root}/posts`, {
-                method: "GET"
+    person: {
+        fetch: (id) => {
+            return fetch(`${root}/users/${id}`, {
+                method: "GET",
             })
         }
-    }
+    },
 })
