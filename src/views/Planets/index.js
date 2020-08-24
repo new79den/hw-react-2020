@@ -1,8 +1,8 @@
 import React from 'react';
-import {useStarshipFetch} from './hooks/useStarshipFetch';
+import {usePlanetsFetch} from './hooks/usePlanetsFetch';
 
-export const Starship = () => {
-    const {data, isFetching, error} = useStarshipFetch();
+export const Planets = () => {
+    const {data, isFetching, error} = usePlanetsFetch();
     const list = isFetching || data.map(({id, title}) => {
         return (<li key={id}>{title}</li>)
     })

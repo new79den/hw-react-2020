@@ -13,6 +13,7 @@ import {StudentRegistration} from '../views/StudentRegistration';
 import {Student} from '../views/Student';
 import {User} from "../views/User";
 import {Starship} from '../views/Starship';
+import {Planets} from '../views/Planets';
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()
@@ -45,6 +46,9 @@ export const Routes = () => {
                 </Route>
                 <Route path={book.starship}>
                        <Starship/>
+                </Route>
+                <Route path={book.planets}>
+                    <Planets/>
                 </Route>
                 <Route path="*">
                     <NotFound/>

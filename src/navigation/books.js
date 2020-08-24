@@ -7,5 +7,6 @@ export const book = Object.freeze({
     registration: '/student/registration',
     student: '/student',
     user: '/user',
-    starship: '/starship'
+    starship: '/starship',
+    planets: '/planets',
 })

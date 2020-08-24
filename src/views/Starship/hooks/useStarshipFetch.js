@@ -8,6 +8,6 @@ export const useStarshipFetch = () => {
     useEffect(() => {
         dispatch(starshipsAction.fetchAsync())
     }, [dispatch])
-    const {data, isFetching} = useSelector(state => state.starship);
-    return  {data, isFetching}
+    const {data, isFetching, error} = useSelector(state => state.starship);
+    return  {data, isFetching, error}
 }
