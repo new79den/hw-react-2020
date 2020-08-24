@@ -1,5 +1,5 @@
 import {types} from './types';
-import {api} from '../../apiStarship'
+import {api} from '../../api'
 
 export const planetsAction = Object.freeze({
     //Sync

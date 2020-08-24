@@ -1,5 +1,5 @@
 import {types} from './types';
-import {api} from '../../apiStarship'
+import {api} from '../../api'
 
 export const starshipsAction = Object.freeze({
     //Sync
@@ -36,7 +36,6 @@ export const starshipsAction = Object.freeze({
         dispatch(starshipsAction.startFetch());
 
         const response = await api.starship.fetch();
-
         if (response.status === 200) {
             const result = await response.json();
             dispatch(starshipsAction.fill(result));
