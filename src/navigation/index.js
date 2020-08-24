@@ -1,9 +1,10 @@
 import React from 'react';
 import {Route, Switch} from 'react-router';
+// Routes
 import {book} from './books';
 
 // Template
-import * as views from '../views'
+import * as Views from '../views'
 
 // Domains
 import {NotFound} from '../bus/NotFound';
@@ -16,14 +17,19 @@ export const Routes = () => {
         <>
             <Switch>
                 <Route path={book.root}>
-
-                    <Starship/>
+                    <Views.Facade>
+                        <Starship/>
+                    </Views.Facade>
                 </Route>
                 <Route path={book.planets}>
-                    <Planets/>
+                    <Views.Facade>
+                        <Planets/>
+                    </Views.Facade>
                 </Route>
                 <Route path={book.swapi}>
-                    <Swapi/>
+                    <Views.Facade>
+                        <Swapi/>
+                    </Views.Facade>
                 </Route>
                 <Route path="*">
                     <NotFound/>
