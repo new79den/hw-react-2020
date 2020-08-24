@@ -9,4 +9,5 @@ export const book = Object.freeze({
     user: '/user',
     starship: '/starship',
     planets: '/planets',
+    swapi: '/swapi',
 })

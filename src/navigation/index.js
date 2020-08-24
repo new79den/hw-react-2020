@@ -14,6 +14,7 @@ import {Student} from '../views/Student';
 import {User} from "../views/User";
 import {Starship} from '../views/Starship';
 import {Planets} from '../views/Planets';
+import {Swapi} from '../views/Swapi';
 
 export const Routes = () => {
     const {isLoginStage, setLogin} = useLogin()
@@ -47,8 +48,14 @@ export const Routes = () => {
                 <Route path={book.starship}>
                        <Starship/>
                 </Route>
+                <Route path={book.starship}>
+                    <Starship/>
+                </Route>
                 <Route path={book.planets}>
                     <Planets/>
+                </Route>
+                <Route path={book.swapi}>
+                    <Swapi/>
                 </Route>
                 <Route path="*">
                     <NotFound/>
