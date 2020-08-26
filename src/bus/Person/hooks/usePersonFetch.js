@@ -10,7 +10,7 @@ export const usePersonFetch = () => {
 
     useEffect(() => {
         dispatch(personAction.fetchAsync(id))
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     const {data, isFetching, error} = useSelector(state => state.person)
 

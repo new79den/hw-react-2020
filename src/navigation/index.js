@@ -10,6 +10,8 @@ import * as Views from '../views'
 import {People} from '../bus/People';
 import {Person} from '../bus/Person';
 import {NotFound} from '../bus/NotFound';
+import {Film} from '../bus/Film';
+import {Films} from '../bus/Films';
 
 export const Routes = () => {
     return (
@@ -25,6 +27,16 @@ export const Routes = () => {
                         <Person/>
                     </Views.Facade>
                 </Route>
+                <Route exect path={book.film}>
+                    <Views.Facade>
+                        <Film/>
+                    </Views.Facade>
+                </Route >
+                <Route path={book.films}>
+                    <Views.Facade>
+                        <Films/>
+                    </Views.Facade>
+                </Route >
                 <Route path="*">
                     <NotFound/>
                 </Route>

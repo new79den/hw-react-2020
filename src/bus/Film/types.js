@@ -1,0 +1,7 @@
+export const types = Object.freeze({
+    FILM_START_FETCH: 'FILM_START_FETCH',
+    FILM_STOP_FETCH: 'FILM_STOP_FETCH',
+    FILM_FILL: 'FILM_FILL',
+    FILM_ERROR: 'FILM_ERROR',
+    FILM_ASYNC_FETCH: 'FILM_ASYNC_FETCH'
+})

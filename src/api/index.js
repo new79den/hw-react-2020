@@ -15,4 +15,8 @@ export const api = Object.freeze({
             })
         }
     },
+    films: (id) => {
+        const url = id ? `${root}/photos/${id}` : `${root}/photos?albumId=1`;
+        return fetch(url, {method: "GET"});
+    }
 })
