@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './App';
+import {Counter} from './componens/example-1'
 import * as serviceWorker from './serviceWorker';
-
-
 import './theme/reset.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-      <App/>
+      {/*<App/>*/}
+      <Counter/>
   </React.StrictMode>,
   document.getElementById('root')
 );
